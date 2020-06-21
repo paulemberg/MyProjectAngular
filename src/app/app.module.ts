@@ -10,6 +10,9 @@ import { FooterComponent } from './navegacao/footer/footer.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 import { rootRouterConfig } from './app.routes';
+import { DataBindingComponent } from './demo/data-binding/data-binding.component';
+import { FormsModule} from "@angular/forms";
+import { ProdutoService } from './produtos/produtos.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { rootRouterConfig } from './app.routes';
     HomeComponent,
     FooterComponent,
     SobreComponent,
-    ContatoComponent
+    ContatoComponent,
+    DataBindingComponent
   ],
   imports: [
     BrowserModule,
-    [RouterModule.forRoot(rootRouterConfig,{ useHash:false })]
+    [RouterModule.forRoot(rootRouterConfig,{ useHash:false })],
+    FormsModule
   ],
   providers: [
+    ProdutoService,
     {provide: APP_BASE_HREF, useValue:'/'}
   ],
   bootstrap: [AppComponent]
